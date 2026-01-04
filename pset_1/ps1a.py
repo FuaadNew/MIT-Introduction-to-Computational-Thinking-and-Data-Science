@@ -57,8 +57,39 @@ def greedy_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    # : Your code here
+    res = []
+    visit = set()
+
+
+    def bruteForce(cow, left, trip):
+        if cow in visit:
+            return
+        if left >= 
+
+
+    #if a cow has not been picked up
+
+    #find the first heaviest cow you can find that can be fit the weight limit that
+
+    #add cow to visit set
+
+    #if we're limited by size add this sublist to res
+
+    #add this cow to the sublist and find the next heaviest cow
+
+
+    #else find the next
+
+
+
+
+
+
+    #if the cow can 
+
+
+    
 
 # Problem 3
 def brute_force_cow_transport(cows,limit=10):
