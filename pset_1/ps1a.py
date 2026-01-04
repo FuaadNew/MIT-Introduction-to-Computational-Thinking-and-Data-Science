@@ -24,15 +24,15 @@ def load_cows(filename):
     Returns:
     a dictionary of cow name (string), weight (int) pairs
     """
-    
+
+    cowDict = {}
     with open(filename) as file:
         for line in file:
             name,weight= line.split(",")
             weight = weight.strip()
-            #print((name,int(weight[:-1])))
-            
-        
-
+            cowDict[name] = int(weight)
+    
+    return cowDict
 
 # Problem 2
 def greedy_cow_transport(cows,limit=10):
