@@ -26,7 +26,7 @@ def load_cows(filename):
     """
     
     with open(filename) as file:
-        print(file)
+        print(file.read())
 
 # Problem 2
 def greedy_cow_transport(cows,limit=10):
@@ -98,4 +98,4 @@ def compare_cow_transport_algorithms():
 
 
 if __name__ == "__main__":
-    print("hello")
+    load_cows('ps1_cow_data.txt')
