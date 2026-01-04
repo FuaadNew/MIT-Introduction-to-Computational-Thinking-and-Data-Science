@@ -26,7 +26,13 @@ def load_cows(filename):
     """
     
     with open(filename) as file:
-        print(file.read())
+        for line in file:
+            name,weight= line.split(",")
+            weight = weight.strip()
+            #print((name,int(weight[:-1])))
+            
+        
+
 
 # Problem 2
 def greedy_cow_transport(cows,limit=10):
