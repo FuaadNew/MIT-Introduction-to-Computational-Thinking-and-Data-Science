@@ -95,3 +95,7 @@ def compare_cow_transport_algorithms():
     """
     # TODO: Your code here
     pass
+
+
+if __name__ == "__main__":
+    print("hello")
