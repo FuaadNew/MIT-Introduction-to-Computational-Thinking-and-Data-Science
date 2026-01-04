@@ -74,6 +74,10 @@ def greedy_cow_transport(cows,limit=10):
             if nextCow not in visit and not (weight + left > limit):
                 bruteForce(nextCow, left + weight)
 
+    bruteForce(cow, 0, [])
+
+    return res
+
 
     
 
