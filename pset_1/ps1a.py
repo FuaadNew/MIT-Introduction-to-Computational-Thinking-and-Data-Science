@@ -6,6 +6,7 @@
 
 from ps1_partition import get_partitions
 import time
+import heapq
 
 #================================
 # Part A: Transporting Space Cows
@@ -60,15 +61,19 @@ def greedy_cow_transport(cows,limit=10):
     # : Your code here
     res = []
     visit = set()
+    cowHeap = []
+
+    for cow, weight in cows.items():
+        heapq.heappush(cowHeap, (weight, cow))
+    print(cowHeap)
 
     
     def bruteForce(cow, capacity, trip):
         
         if capacity > limit:
-            print("too big")
             return
         if capacity == limit:
-            print("just right")
+            
             res.append(trip[:])
             return
         
@@ -76,9 +81,9 @@ def greedy_cow_transport(cows,limit=10):
         trip.append(cow)
 
         for nextCow, weight in sorted(cows.items(), reverse = True): 
-            if nextCow not in visit and not (weight + capacity > limit):
+            if nextCow not in visit:
                 bruteForce(nextCow, capacity + weight, trip)
-
+    
     for cow in cows.keys():
         bruteForce(cow, 0, [])
 
@@ -160,4 +165,5 @@ def compare_cow_transport_algorithms():
 
 if __name__ == "__main__":
     cows = load_cows('ps1_cow_data.txt')
+    print(cows)
     print(greedy_cow_transport(cows,limit=10))
