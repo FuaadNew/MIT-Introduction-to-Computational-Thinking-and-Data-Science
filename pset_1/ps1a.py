@@ -61,18 +61,23 @@ def greedy_cow_transport(cows,limit=10):
     res = []
     visit = set()
 
-
-    def bruteForce(cow, left, trip):
+    
+    def bruteForce(cow, capacity, trip):
         
-        if left == limit:
+        if capacity > limit:
+            print("too big")
+            return
+        if capacity == limit:
+            print("just right")
             res.append(trip[:])
             return
         
         visit.add(cow)
+        trip.append(cow)
 
         for nextCow, weight in sorted(cows.items(), reverse = True): 
-            if nextCow not in visit and not (weight + left > limit):
-                bruteForce(nextCow, left + weight)
+            if nextCow not in visit and not (weight + capacity > limit):
+                bruteForce(nextCow, capacity + weight, trip)
 
     for cow in cows.keys():
         bruteForce(cow, 0, [])
@@ -155,4 +160,4 @@ def compare_cow_transport_algorithms():
 
 if __name__ == "__main__":
     cows = load_cows('ps1_cow_data.txt')
-    greedy_cow_transport(cows,limit=10)
+    print(greedy_cow_transport(cows,limit=10))
