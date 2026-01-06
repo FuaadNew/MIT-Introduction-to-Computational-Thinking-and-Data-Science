@@ -64,8 +64,8 @@ def greedy_cow_transport(cows,limit=10):
     cowHeap = []
 
     for cow, weight in cows.items():
-        heapq.heappush(cowHeap, (weight, cow))
-    print(cowHeap)
+        heapq.heappush(cowHeap, (-weight, cow))
+    
 
     
     def bruteForce(cow, capacity, trip):
