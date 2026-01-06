@@ -74,7 +74,8 @@ def greedy_cow_transport(cows,limit=10):
             if nextCow not in visit and not (weight + left > limit):
                 bruteForce(nextCow, left + weight)
 
-    bruteForce(cow, 0, [])
+    for cow in cows.keys():
+        bruteForce(cow, 0, [])
 
     return res
 
@@ -153,4 +154,5 @@ def compare_cow_transport_algorithms():
 
 
 if __name__ == "__main__":
-    load_cows('ps1_cow_data.txt')
+    cows = load_cows('ps1_cow_data.txt')
+    greedy_cow_transport(cows,limit=10)
