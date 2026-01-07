@@ -66,29 +66,26 @@ def greedy_cow_transport(cows,limit=10):
     for cow, weight in cows.items():
         heapq.heappush(cowHeap, (-weight, cow))
     
+    res = []
+    sublist = []
+    subweight = 0
 
-    
-    def bruteForce(cow, capacity, trip):
-        
-        if capacity > limit:
-            return
-        if capacity == limit:
-            
-            res.append(trip[:])
-            return
-        
-        visit.add(cow)
-        trip.append(cow)
 
-        for nextCow, weight in sorted(cows.items(), reverse = True): 
-            if nextCow not in visit:
-                bruteForce(nextCow, capacity + weight, trip)
-    
-    for cow in cows.keys():
-        bruteForce(cow, 0, [])
+
+    while cowHeap:
+        weight,cow = heapq.heappop(cowHeap)
+        if subweight + weight < limit:
+            subweight+=-weight
+            sublist.append(cow)
+        elif -cowHeap[-1][0] + subweight > limit:
+            res.append(sublist)
+            subweight = 0
+            sublist = []
+            heapq.heappush(cowHeap, (weight, cow))
+        else:
+            heapq.heappush(cowHeap,(weight, cow))
 
     return res
-
 
     
 
@@ -165,5 +162,4 @@ def compare_cow_transport_algorithms():
 
 if __name__ == "__main__":
     cows = load_cows('ps1_cow_data.txt')
-    print(cows)
     print(greedy_cow_transport(cows,limit=10))
