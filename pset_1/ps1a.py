@@ -60,33 +60,8 @@ def greedy_cow_transport(cows,limit=10):
     """
     # : Your code here
 
-    cowHeap = []
-    res = []
-    for cow,weight in cows.items():
-        heapq.heappush(cowHeap, (-weight, cow))
-    
-    res = []
-    while cowHeap:
-        
-        skipped = []
-        subWeight = 0
-        sublist = []
-
-        while cowHeap:
-            weight, cow = heapq.heappop(cowHeap)
-            weight = -weight
-            if subWeight + weight <= limit:
-                sublist.append(cow)
-                subWeight+=weight
-            else:
-                skipped.append((-weight, cow))
-        res.append(sublist)
-        for weight,cow in skipped:
-            heapq.heappush(cowHeap, (weight, cow))
-        
-
-    return res
-
+    cow_list = [sorted((weight, cow) for weight,cow in cows.items())]
+    print(cow_list)
 
 
 
