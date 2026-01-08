@@ -182,11 +182,17 @@ def compare_cow_transport_algorithms():
     Returns:
     Does not return anything.
     """
-    greedy_cow_transport(cows,limit=10)
-    brute_force_cow_transport(cows,limit=10)
+    greedy_list, greedytrips, greedy_time = greedy_cow_transport(cows,limit=10)
+    brute_list, brutetrips, brute_time = brute_force_cow_transport(cows,limit=10)
+
+    print(f"The greedy algorithm took  {greedytrips} trips for a total of {greedy_time} seconds.")
+    print(f"Best Greedy trips {greedy_list}")
+
+    print(f"The brute force algorithm took  {brutetrips} trips for a total of  {brute_time} seconds.")
+    print(f"Best brute force trips {brute_list}")
+
 
 
 if __name__ == "__main__":
     cows = load_cows('ps1_cow_data.txt')
-    print(greedy_cow_transport(cows,limit=10))
-    print(brute_force_cow_transport(cows,limit=10))
+    compare_cow_transport_algorithms()
