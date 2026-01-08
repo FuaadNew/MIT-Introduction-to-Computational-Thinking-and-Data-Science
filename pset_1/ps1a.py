@@ -60,8 +60,23 @@ def greedy_cow_transport(cows,limit=10):
     """
     # : Your code here
 
-    cow_list = [sorted((weight, cow) for weight,cow in cows.items())]
-    print(cow_list)
+    cow_list = sorted((-weight, cow) for cow,weight in cows.items())
+    used = set()
+    res = []
+    while len(used) != len(cows.values()):
+        sublist = []
+        subweight = 0
+        for weight,cow in cow_list:
+            weight = -weight
+            if cow not in used and weight + subweight <= limit:
+                used.add(cow)
+                subweight+= weight
+                sublist.append(cow)   
+        res.append(sublist)
+    print(res)
+    return res
+
+    
 
 
 
@@ -111,8 +126,19 @@ def brute_force_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    #: Your code here
+    res = 0
+    minTrips = 0
+    def dfs(cows):
+    for partition in get_partitions(cows.items()):
+        dfs(parition)
+    
+    return res
+    
+
+
+
+    
         
 # Problem 4
 def compare_cow_transport_algorithms():
@@ -134,4 +160,4 @@ def compare_cow_transport_algorithms():
 
 if __name__ == "__main__":
     cows = load_cows('ps1_cow_data.txt')
-    print(greedy_cow_transport(cows,limit=10))
+    brute_force_cow_transport(cows,limit=10)
