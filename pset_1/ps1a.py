@@ -73,7 +73,7 @@ def greedy_cow_transport(cows,limit=10):
                 used.add(cow)
                 subweight+= weight
                 sublist.append(cow)   
-        trip+=1
+        trips+=1
         res.append(sublist)
     end = time.time()
     timeElapsed = end - start
