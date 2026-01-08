@@ -127,9 +127,18 @@ def brute_force_cow_transport(cows,limit=10):
     trips
     """
     #: Your code here
-    res = 0
-    minTrips = 0
-    def dfs(cows):
+    
+
+    #for every partition 
+
+    #do a brute force traversal where we make the list of trips 
+
+    
+
+    #global res will be the list with the least trips 
+
+
+
     for partition in get_partitions(cows.items()):
         dfs(parition)
     
