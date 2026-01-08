@@ -141,14 +141,15 @@ def brute_force_cow_transport(cows,limit=10):
                 subweight+=weight
             if subweight > limit:
                 return False
-            
+        
 
-     
+        return True
 
     fewest_trips = float('inf')
     best_partition = []
 
-
+    weightIsValid = False
+    lenghFlag = False
     for partitions in get_partitions(cows.items()):
         if isvalidPartition(partitions) and len(partitions) < fewest_trips:
             fewest_trips = len(partitions)
