@@ -132,17 +132,32 @@ def brute_force_cow_transport(cows,limit=10):
     #for every partition 
 
     #do a brute force traversal where we make the list of trips 
+    res = float('inf')
+    def isvalidPartition(partitions):
+        
+        for partition in partitions:
+            subweight = 0
+            for cow,weight in partition:
+                subweight+=weight
+            if subweight > limit:
+                return False
+            
 
+     
+
+    fewest_trips = float('inf')
+    best_partition = []
+
+
+    for partitions in get_partitions(cows.items()):
+        if isvalidPartition(partitions) and len(partitions) < fewest_trips:
+            fewest_trips = len(partitions)
+            best_partition = partitions
+
+
+        
     
-
-    #global res will be the list with the least trips 
-
-
-
-    for partition in get_partitions(cows.items()):
-        dfs(parition)
-    
-    return res
+    return best_partition
     
 
 
@@ -169,4 +184,4 @@ def compare_cow_transport_algorithms():
 
 if __name__ == "__main__":
     cows = load_cows('ps1_cow_data.txt')
-    brute_force_cow_transport(cows,limit=10)
+    print(brute_force_cow_transport(cows,limit=10))
