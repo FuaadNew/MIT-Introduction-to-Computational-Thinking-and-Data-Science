@@ -132,7 +132,6 @@ def brute_force_cow_transport(cows,limit=10):
     #for every partition 
 
     #do a brute force traversal where we make the list of trips 
-    res = float('inf')
     def isvalidPartition(partitions):
         
         for partition in partitions:
@@ -148,8 +147,6 @@ def brute_force_cow_transport(cows,limit=10):
     fewest_trips = float('inf')
     best_partition = []
 
-    weightIsValid = False
-    lenghFlag = False
     for partitions in get_partitions(cows.keys()):
         if isvalidPartition(partitions) and len(partitions) < fewest_trips:
             fewest_trips = len(partitions)
