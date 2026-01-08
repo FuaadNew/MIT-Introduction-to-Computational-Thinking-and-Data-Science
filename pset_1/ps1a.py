@@ -59,7 +59,7 @@ def greedy_cow_transport(cows,limit=10):
     trips
     """
     # : Your code here
-    trips = 0
+
     start = time.time()
     cow_list = sorted((-weight, cow) for cow,weight in cows.items())
     used = set()
@@ -73,10 +73,11 @@ def greedy_cow_transport(cows,limit=10):
                 used.add(cow)
                 subweight+= weight
                 sublist.append(cow)   
-        trips+=1
+        
         res.append(sublist)
     end = time.time()
     timeElapsed = end - start
+    trips = len(res)
     return (res, trips, timeElapsed)
 
     
@@ -150,9 +151,8 @@ def brute_force_cow_transport(cows,limit=10):
     fewest_trips = float('inf')
     best_partition = []
     start = time.time()
-    trips = 0
+    
     for partitions in get_partitions(cows.keys()):
-        trips+=1
         if isvalidPartition(partitions) and len(partitions) < fewest_trips:
             fewest_trips = len(partitions)
             best_partition = partitions
@@ -160,6 +160,7 @@ def brute_force_cow_transport(cows,limit=10):
 
     end = time.time()
     timeElapsed = end - start
+    trips = len(best_partition)
     return (best_partition, trips, timeElapsed)
    
     
