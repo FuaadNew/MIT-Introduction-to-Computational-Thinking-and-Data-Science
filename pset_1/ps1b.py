@@ -23,7 +23,27 @@ def dp_make_weight(egg_weights, target_weight, memo = {}):
     Returns: int, smallest number of eggs needed to make target weight
     """
     # TODO: Your code here
-    pass
+    def dfs(i,egg_length,weight):
+        if (i,egg_length, weight) in memo:
+            return memo[i,egg_length, weight]
+        if weight > target_weight:
+            return float('inf')
+        if  i >= len(egg_weights):
+            return float('inf')
+        if  weight == target_weight:
+            return egg_length
+        #include egg
+        include = dfs(i, egg_length + 1, weight +  egg_weights[i])
+        #exclude
+        exclude = dfs(i + 1, egg_length, weight)
+
+       
+        memo[i,egg_length, weight] = min(include, exclude)
+        return  memo[i,egg_length, weight]
+
+        #no include egg
+    
+    return dfs(0,0,0)
 
 # EXAMPLE TESTING CODE, feel free to add more if you'd like
 if __name__ == '__main__':

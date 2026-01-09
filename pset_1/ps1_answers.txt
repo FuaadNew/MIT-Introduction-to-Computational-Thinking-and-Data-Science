@@ -1,5 +1,15 @@
-Answer the following questions in a PDF file called ps1_answers.pdf.
 1. What were your results from compare_cow_transport_algorithms? Which
 algorithm runs faster? Why?
+
+    The greedy algorithm ran seventeen thousand times faster than the brute force approach ( 1.71661376953125e-05 seconds as opposed to 0.2988619804382324 seconds). 
+
 2. Does the greedy algorithm return the optimal solution? Why/why not?
+
+    The greedy algorithm took 6 trips whilst the brute force approach took 5 trips. 
+    The greedy algorithm chooses to take the heaviest cow first, maximizing a local maximum, and not being concerned with
+    the optimal cow transfer strategy. 
+
 3. Does the brute force algorithm return the optimal solution? Why/why not?
+
+    The brute force solution returned the optimal solution of 5 trips. We know it's the most optimal solution as we went through every partition of cow orderings.
+    This brute force approach was computationally feasible due to low amount of cows. If we were to increase the number of cows to be tranferred the time complexity of the brute force approach will become exponential. 
