@@ -1,15 +1,56 @@
-1. What were your results from compare_cow_transport_algorithms? Which
-algorithm runs faster? Why?
 
-    The greedy algorithm ran seventeen thousand times faster than the brute force approach ( 1.71661376953125e-05 seconds as opposed to 0.2988619804382324 seconds). 
+A.5 Write up. 
 
-2. Does the greedy algorithm return the optimal solution? Why/why not?
+    1. What were your results from compare_cow_transport_algorithms? Which
+    algorithm runs faster? Why?
 
-    The greedy algorithm took 6 trips whilst the brute force approach took 5 trips. 
-    The greedy algorithm chooses to take the heaviest cow first, maximizing a local maximum, and not being concerned with
-    the optimal cow transfer strategy. 
+        The greedy algorithm ran seventeen thousand times faster than the brute force approach ( 1.71661376953125e-05 seconds as opposed to 0.2988619804382324 seconds). 
 
-3. Does the brute force algorithm return the optimal solution? Why/why not?
+    2. Does the greedy algorithm return the optimal solution? Why/why not?
 
-    The brute force solution returned the optimal solution of 5 trips. We know it's the most optimal solution as we went through every partition of cow orderings.
-    This brute force approach was computationally feasible due to low amount of cows. If we were to increase the number of cows to be tranferred the time complexity of the brute force approach will become exponential. 
+        The greedy algorithm took 6 trips whilst the brute force approach took 5 trips. 
+        The greedy algorithm chooses to take the heaviest cow first, maximizing a local maximum, and not being concerned with
+        the optimal cow transfer strategy. 
+
+    3. Does the brute force algorithm return the optimal solution? Why/why not?
+
+        The brute force solution returned the optimal solution of 5 trips. We know it's the most optimal solution as we went through every partition of cow orderings.
+        This brute force approach was computationally feasible due to low amount of cows. If we were to increase the number of cows to be tranferred the time complexity of the brute force approach will become exponential. 
+
+
+B.2 Write up.
+    1. Explain why it would be difficult to use a brute force algorithm to solve this problem if there
+    were 30 different egg weights. You do not need to implement a brute force algorithm in order to
+    answer this.
+
+        The time complexity of a brute force solution would be exponential. For a small amount of egg weights 
+        the brute force algorithm can be computationally feasible but as the amount of weights increases, brute
+        force quickly becomes computationally intractable.
+
+
+    2. If you were to implement a greedy algorithm for finding the minimum number of eggs
+    needed, what would the objective function be? What would the constraints be? What strategy
+    would your greedy algorithm follow to pick which coins to take? You do not need to implement a
+    greedy algorithm in order to answer this.
+
+        The approach of my greedy algorithm would be to choose the heaviest eggs first, the thought
+        process being that optimizing the minimum number of eggs carried can be accomplished by 
+        prioritizing the heaviest eggs. The objective function would be maximizing egg weight on every choice.
+        The contstraint would be the total egg weight must equal the target weight, and any choice that causes the 
+        total weight to exceed the target weight is discarded.
+        
+
+    3. Will a greedy algorithm always return the optimal solution to this problem? Explain why it is
+    optimal or give an example of when it will not return the optimal solution. Again, you do not need
+    to implement a greedy algorithm in order to answer this
+
+        The greedy algorithm would not guarentee the optimal solution, because we are optimizing for egg weight 
+        at every choice we will only be able to opimize the local minimum. Without looking at every choice there
+        is no guarentee that the optimal solution would be found. 
+
+        An example of the greedy approach failing to find the optimal solution is below:
+
+        target = 8
+        weights = [5,1,1,1,4,4]
+        greedy approach = 5 + 1 + 1 + 1 (4 eggs)
+        brutefroce appraoch = 4 + 4 (2 eggs)

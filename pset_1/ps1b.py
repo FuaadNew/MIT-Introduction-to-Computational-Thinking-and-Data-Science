@@ -25,7 +25,7 @@ def dp_make_weight(egg_weights, target_weight, memo = {}):
     # TODO: Your code here
     def dfs(i,egg_length,weight):
         if (i,egg_length, weight) in memo:
-            return memo[i,egg_length, weight]
+            return memo[(i,egg_length, weight)]
         if weight > target_weight:
             return float('inf')
         if  i >= len(egg_weights):
@@ -38,8 +38,8 @@ def dp_make_weight(egg_weights, target_weight, memo = {}):
         exclude = dfs(i + 1, egg_length, weight)
 
        
-        memo[i,egg_length, weight] = min(include, exclude)
-        return  memo[i,egg_length, weight]
+        memo[(i,egg_length, weight)] = min(include, exclude)
+        return  memo[(i,egg_length, weight)]
 
         #no include egg
     
