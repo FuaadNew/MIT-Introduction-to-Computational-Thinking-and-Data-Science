@@ -1,8 +1,8 @@
 ###########################
 # 6.0002 Problem Set 1a: Space Cows 
-# Name:
-# Collaborators:
-# Time:
+# Name: fuaadnew
+# Collaborators: None
+# Time: 2 hours
 
 from ps1_partition import get_partitions
 import time

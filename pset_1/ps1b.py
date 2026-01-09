@@ -1,8 +1,8 @@
 ###########################
 # 6.0002 Problem Set 1b: Space Change
-# Name:
-# Collaborators:
-# Time:
+# Name: fuaadnew
+# Collaborators: None
+# Time: 1 hour
 # Author: charz, cdenise
 
 #================================

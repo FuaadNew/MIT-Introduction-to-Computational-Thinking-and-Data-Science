@@ -51,6 +51,6 @@ B.2 Write up.
         An example of the greedy approach failing to find the optimal solution is below:
 
         target = 8
-        weights = [5,1,1,1,4,4]
+        weights = (5,1,4)
         greedy approach = 5 + 1 + 1 + 1 (4 eggs)
         brutefroce appraoch = 4 + 4 (2 eggs)
