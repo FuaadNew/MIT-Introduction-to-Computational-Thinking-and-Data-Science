@@ -73,7 +73,7 @@ class WeightedEdge(Edge):
     def __str__(self):
         # TODO
 
-        return f"{self.src}->{self.dest} ({self.total_distance,self.outdoor_distance})"
+        return f"{self.src}->{self.dest} ({self.total_distance},{self.outdoor_distance})"
 
 
 class Digraph(object):
