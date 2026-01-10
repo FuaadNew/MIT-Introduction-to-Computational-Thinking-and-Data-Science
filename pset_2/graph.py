@@ -109,10 +109,18 @@ class Digraph(object):
         in the  graph."""
          # TODO
 
-        if edge not in self.edges:
-            raise ValueError("edge already in Digraph")
-        
-        self.edges[edge] = []
+        src = edge.get_source
+        dst = edge.get_destination
+
+        if self.has_node(src):
+            raise ValueError("node already in Digraph")
+
+        if self.has_node(dst):
+            raise ValueError("node already in Digraph")
+
+
+
+        self.edges[src] = []
 
 
 
