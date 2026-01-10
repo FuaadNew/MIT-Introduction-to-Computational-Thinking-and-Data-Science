@@ -71,7 +71,7 @@ def load_map(map_filename):
 # Problem 2c: Testing load_map
 # Include the lines used to test load_map below, but comment them out
 
-
+#print(load_map("test_load_map.txt"))
 #
 # Problem 3: Finding the Shorest Path using Optimized Search Method
 #
@@ -240,4 +240,5 @@ class Ps2Test(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-    load_map("mit_map.txt")
+    
+
