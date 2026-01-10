@@ -23,7 +23,7 @@ from graph import Digraph, Node, WeightedEdge
 #
 # Answer:
 #The graph nodes represent buildings on the MIT campus. 
-# The graph edges represent the absolute distance in meters between two nodes that must be traversed to get from source and destination, as well as the distance between the two nodes that must be spend outside 
+# The graph edges represent the walkable paths between two node. The distances are stored as weights in the edges. The edges contain information regarding the absolute distance in meters between two nodes that must be traversed to get from source and destination, as well as the distance between the two nodes that must be spend outside 
 #
 #
 
@@ -49,7 +49,24 @@ def load_map(map_filename):
     """
 
     # TODO
+    digraph = Digraph()
     print("Loading map from file...")
+    
+    with open(map_filename) as file:
+        for line in file:
+            src,dst,dist,outdist = line.split()
+            srcNode,dstNode = Node(src), Node(dst)
+            if not digraph.has_node(srcNode):
+                digraph.add_node(srcNode)
+            if not digraph.has_node(dstNode):
+                digraph.add_node(dstNode)
+            edge = WeightedEdge(srcNode, dstNode, int(dist), int(outdist))
+            digraph.add_edge(edge)
+            
+    return digraph
+            
+
+
 
 # Problem 2c: Testing load_map
 # Include the lines used to test load_map below, but comment them out
@@ -223,3 +240,4 @@ class Ps2Test(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+    load_map("mit_map.txt")
