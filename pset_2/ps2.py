@@ -86,6 +86,7 @@ def load_map(map_filename):
 #
 
 # Problem 3b: Implement get_best_path
+
 def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
                   best_path):
     """
@@ -126,16 +127,21 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
 
 
     if start == end:
-        if path[0] < best_dist and path[1] < max_dist_outdoors:
-            best_dist = path[0]
-            return
+        if path[2] < max_dist_outdoors:
+            best_dist = path[1]
+            best_path = path[0]
+            return (candidate_path, candidate_dist)
     else:
         #for all the child nodes of start
         for node in digraph.edges[start]:
         #construct a path including that node
-        path[0].append(node)
-        get_best_path(best_dist, get_best_path(digraph, node, end, path, max_dist_outdoors, best_dist))
-    return best_dist
+        path[0].append(node.get_name())
+        candidate_path, candidate_dist = get_best_path(digraph, node, end, path, max_dist_outdoors, best_dist)
+        if candidate_dist < best_dist:
+            best_dist = candidate_dist
+            best_path = candidate_path
+
+    return (best_path, best_dist)
     
 
 
