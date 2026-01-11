@@ -80,6 +80,9 @@ def load_map(map_filename):
 # What is the objective function for this problem? What are the constraints?
 #
 # Answer:
+#  The objective function of the shortest path algorithm is the total distance traveled 
+# between two nodes. The contraints being we can't go over the maximum allowed total distance and the maximum allowed distance spent outside. 
+
 #
 
 # Problem 3b: Implement get_best_path
