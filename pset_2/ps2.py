@@ -120,17 +120,22 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
         If there exists no path that satisfies max_total_dist and
         max_dist_outdoors constraints, then return None.
     """
-    # 
-    
-    if start and end are not valid nodes:
-        raise an error
-    elif start and end are the same node:
-        update the global variables appropriately
+   
+    if not (digraph.has_node(start)) or not (digraph.has_node(end)):
+        raise ValueError('Not valid Nodes')
+
+
+    if start == end:
+        if path[0] < best_dist and path[1] < max_dist_outdoors:
+            best_dist = path[0]
+            return
     else:
-        for all the child nodes of start
-        construct a path including that node
-        recursively solve the rest of the path, from the child node to the end node
-    return the shortest path
+        #for all the child nodes of start
+        for node in digraph.edges[start]:
+        #construct a path including that node
+        path[0].append(node)
+        get_best_path(best_dist, get_best_path(digraph, node, end, path, max_dist_outdoors, best_dist))
+    return best_dist
     
 
 
