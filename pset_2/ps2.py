@@ -120,8 +120,18 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
         If there exists no path that satisfies max_total_dist and
         max_dist_outdoors constraints, then return None.
     """
-    # TODO
-    pass
+    # 
+    
+    if start and end are not valid nodes:
+        raise an error
+    elif start and end are the same node:
+        update the global variables appropriately
+    else:
+        for all the child nodes of start
+        construct a path including that node
+        recursively solve the rest of the path, from the child node to the end node
+    return the shortest path
+    
 
 
 # Problem 3c: Implement directed_dfs
