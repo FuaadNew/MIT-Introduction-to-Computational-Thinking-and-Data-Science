@@ -139,8 +139,8 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
             if child in path:
                 continue
             path[0].append(child.get_name())
-            candidate_path, candidate_dist = get_best_path(digraph, child.get_name(), end, path, max_dist_outdoors, best_dis,best_path)
-            if candidate_dist < best_dist:
+            candidate_path, candidate_dist = get_best_path(digraph, child.get_name(), end, path, max_dist_outdoors, best_dist,best_path)
+            if candidate_dist is not None and (best_dist is None or candidate_dist < best_dist) :
                 best_dist = candidate_dist
                 best_path = candidate_path
 
