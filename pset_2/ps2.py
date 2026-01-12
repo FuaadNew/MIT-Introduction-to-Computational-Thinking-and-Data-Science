@@ -136,9 +136,10 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
         for edge in digraph.get_edges_for_node(Node(start)):
             #construct a path including that node
             child = edge.get_destination()
-            if child in path:
+            if child.get_name() in path:
                 continue
-            path[0].append(child.get_name())
+            new_path = path[0] + child.get_name()
+           
             candidate_path, candidate_dist = get_best_path(digraph, child.get_name(), end, path, max_dist_outdoors, best_dist,best_path)
             if candidate_dist is not None and (best_dist is None or candidate_dist < best_dist) :
                 best_dist = candidate_dist
