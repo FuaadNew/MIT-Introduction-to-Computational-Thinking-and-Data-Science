@@ -194,8 +194,11 @@ def directed_dfs(digraph, start, end, max_total_dist, max_dist_outdoors):
     # TODO
     
 
-    res = get_best_path(digraph, start, end, [], max_dist_outdoors, best_dist,
-                  []):
+
+     #get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
+                 #best_path):
+    res = get_best_path(digraph, start, end, [[],0,0], max_dist_outdoors, None,
+                  None)
     return res[0]
 
 
