@@ -127,16 +127,19 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
 
 
     if start == end:
-        if path[2] < max_dist_outdoors:
+        if path[2] <= max_dist_outdoors:
             best_dist = path[1]
             best_path = path[0]
-            return (path, best_dist)
+            return (best_path, best_dist)
     else:
         #for all the child nodes of start
-        for node in digraph.edges[Node(star)]:
+        for edge in digraph.get_edges_for_node(Node(start)):
             #construct a path including that node
-            path[0].append(node.get_name())
-            candidate_path, candidate_dist = get_best_path(digraph, node, end, path, max_dist_outdoors, best_dist)
+            child = edge.get_destination()
+            if child in path:
+                continue
+            path[0].append(child.get_name())
+            candidate_path, candidate_dist = get_best_path(digraph, child.get_name(), end, path, max_dist_outdoors, best_dis,best_path)
             if candidate_dist < best_dist:
                 best_dist = candidate_dist
                 best_path = candidate_path
