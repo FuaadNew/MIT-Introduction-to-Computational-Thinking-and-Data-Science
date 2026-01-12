@@ -122,7 +122,7 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
         max_dist_outdoors constraints, then return None.
     """
    
-    if not (digraph.has_node(start)) or not (digraph.has_node(end)):
+    if not (digraph.has_node(Node(start))) or not (digraph.has_node(Node(end))):
         raise ValueError('Not valid Nodes')
 
 
@@ -130,16 +130,16 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
         if path[2] < max_dist_outdoors:
             best_dist = path[1]
             best_path = path[0]
-            return (candidate_path, candidate_dist)
+            return (path, best_dist)
     else:
         #for all the child nodes of start
-        for node in digraph.edges[start]:
-        #construct a path including that node
-        path[0].append(node.get_name())
-        candidate_path, candidate_dist = get_best_path(digraph, node, end, path, max_dist_outdoors, best_dist)
-        if candidate_dist < best_dist:
-            best_dist = candidate_dist
-            best_path = candidate_path
+        for node in digraph.edges[Node(star)]:
+            #construct a path including that node
+            path[0].append(node.get_name())
+            candidate_path, candidate_dist = get_best_path(digraph, node, end, path, max_dist_outdoors, best_dist)
+            if candidate_dist < best_dist:
+                best_dist = candidate_dist
+                best_path = candidate_path
 
     return (best_path, best_dist)
     
