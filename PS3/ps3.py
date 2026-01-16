@@ -89,8 +89,6 @@ class RectangularRoom(object):
         for i in range(self.width):
             for j in range(self.height):
                 self.titles[(i,j)] = dirt_amount
-
-
     
     def clean_tile_at_position(self, pos, capacity):
         """
@@ -106,7 +104,7 @@ class RectangularRoom(object):
               If the capacity exceeds the amount of dirt on the tile, mark it as 0.
         """
 
-        
+        self.titles[(pos.x, pos.y)] -= capacity
 
 
     def is_tile_cleaned(self, m, n):
