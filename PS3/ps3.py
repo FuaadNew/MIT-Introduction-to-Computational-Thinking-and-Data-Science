@@ -103,8 +103,8 @@ class RectangularRoom(object):
         Note: The amount of dirt on each tile should be NON-NEGATIVE.
               If the capacity exceeds the amount of dirt on the tile, mark it as 0.
         """
-
-        self.titles[(pos.x, pos.y)] -= capacity
+        x,y = Math.Floor(pos.get_x),Math.floor(pos.get_y)
+        self.tiles[(x,y)] = max(0, self.titles[(x,y)] -  capacity)
 
 
     def is_tile_cleaned(self, m, n):
