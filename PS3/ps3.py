@@ -84,7 +84,8 @@ class RectangularRoom(object):
         self.width = width
         self.height = height
         self.dirt_amount = dirt_amount
-        self.titles = {}
+        self.tiles = {}
+        self.cleaned = 0
 
         for i in range(self.width):
             for j in range(self.height):
@@ -103,9 +104,10 @@ class RectangularRoom(object):
         Note: The amount of dirt on each tile should be NON-NEGATIVE.
               If the capacity exceeds the amount of dirt on the tile, mark it as 0.
         """
-        x,y = Math.Floor(pos.get_x),Math.floor(pos.get_y)
+        x,y = math.floor(pos.get_x()),math.floor(pos.get_y())
         self.tiles[(x,y)] = max(0, self.titles[(x,y)] -  capacity)
-
+        if self.tiles[(x,y)]  == 0:
+            self.cleaned+=1
 
     def is_tile_cleaned(self, m, n):
         """
@@ -127,7 +129,8 @@ class RectangularRoom(object):
         """
         Returns: an integer; the total number of clean tiles in the room
         """
-        raise NotImplementedError
+        return self.cleaned
+        
         
     def is_position_in_room(self, pos):
         """
