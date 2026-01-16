@@ -121,7 +121,7 @@ class RectangularRoom(object):
         Note: The tile is considered clean only when the amount of dirt on this
               tile is 0.
         """
-        raise NotImplementedError
+        return self.tiles[(m,n)] == 0
 
     def get_num_cleaned_tiles(self):
         """
