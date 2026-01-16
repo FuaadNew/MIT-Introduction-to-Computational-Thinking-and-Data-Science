@@ -107,8 +107,12 @@ class RectangularRoom(object):
         x,y = math.floor(pos.get_x()),math.floor(pos.get_y())
         was_dirty = self.tiles[(x,y)] > 0
         self.tiles[(x,y)] = max(0, self.tiles[(x,y)] -  capacity)
+
         if was_dirty and self.tiles[(x,y)]  == 0:
             self.cleaned+=1
+        
+        if not was_dirty and self.tiles[(x,y)]  > 0:
+            self.cleaned-=1
 
     def is_tile_cleaned(self, m, n):
         """
