@@ -233,7 +233,7 @@ class Robot(object):
 
         position: a Position object.
         """
-        raise NotImplementedError
+        self.position = position
 
     def set_robot_direction(self, direction):
         """
