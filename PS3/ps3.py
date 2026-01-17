@@ -158,14 +158,14 @@ class RectangularRoom(object):
 
         Returns: an integer
         """
-        raise NotImplementedError
+        return self.tiles[(m,n)]
         
     def get_num_tiles(self):
         """
         Returns: an integer; the total number of tiles in the room
         """
         # do not change -- implement in subclasses.
-        raise NotImplementedError 
+        return self.height * self.width
         
     def is_position_valid(self, pos):
         """
