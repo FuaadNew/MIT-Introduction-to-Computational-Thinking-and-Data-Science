@@ -85,7 +85,7 @@ class RectangularRoom(object):
         self.height = height
         self.dirt_amount = dirt_amount
         self.tiles = {}
-        self.cleaned = (width * height) if dirt_amount == else 0
+        self.cleaned = (width * height) if dirt_amount == 0 else 0
 
         for i in range(self.width):
             for j in range(self.height):
