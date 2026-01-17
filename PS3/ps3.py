@@ -217,6 +217,7 @@ class Robot(object):
         """
         Returns: a Position object giving the robot's position in the room.
         """
+        return self.position
         
 
     def get_robot_direction(self):
