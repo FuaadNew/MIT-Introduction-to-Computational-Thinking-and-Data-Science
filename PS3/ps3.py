@@ -206,13 +206,18 @@ class Robot(object):
         capacity: a positive interger; the amount of dirt cleaned by the robot 
                   in a single time-step
         """
-        raise NotImplementedError
+        self.room = room
+        self.position = Position(random.random() * self.room.width, random.random() * self.room.height)
+        self.speed = speed
+        self.capacity = capacity
+        self.direction = random.random() * 360
+
 
     def get_robot_position(self):
         """
         Returns: a Position object giving the robot's position in the room.
         """
-        raise NotImplementedError
+        
 
     def get_robot_direction(self):
         """
