@@ -144,7 +144,9 @@ class RectangularRoom(object):
         pos: a Position object.
         Returns: True if pos is in the room, False otherwise.
         """
-        raise NotImplementedError
+        x,y = math.floor(pos.get_x()), math.floor(pos.get_y())
+        if (x,y) in self.tiles.keys() return True else False
+
         
     def get_dirt_amount(self, m, n):
         """
