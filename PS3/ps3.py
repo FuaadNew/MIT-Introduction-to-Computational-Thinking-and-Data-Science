@@ -343,7 +343,11 @@ class FurnishedRoom(RectangularRoom):
         
         returns: True if pos is in the room and is unfurnished, False otherwise.
         """
-        raise NotImplementedError
+       
+        x,y = math.floor(pos.get_x()), math.floor(pos.get_y())
+
+        return self.is_position_in_room(pos) and not self.is_tile_furnished(x,y)
+
         
     def get_num_tiles(self):
         """
