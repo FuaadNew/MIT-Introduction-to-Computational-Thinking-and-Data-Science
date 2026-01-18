@@ -326,7 +326,7 @@ class FurnishedRoom(RectangularRoom):
         """
         Return True if tile (m, n) is furnished.
         """
-        raise NotImplementedError
+        return (m, n) in self.furniture_tiles
         
     def is_position_furnished(self, pos):
         """
