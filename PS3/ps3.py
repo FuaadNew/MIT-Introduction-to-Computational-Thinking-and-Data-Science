@@ -259,11 +259,12 @@ class EmptyRoom(RectangularRoom):
     """
     An EmptyRoom represents a RectangularRoom with no furniture.
     """
+
     def get_num_tiles(self):
         """
         Returns: an integer; the total number of tiles in the room
         """
-        raise NotImplementedError
+        return self.width * self.height
         
     def is_position_valid(self, pos):
         """
