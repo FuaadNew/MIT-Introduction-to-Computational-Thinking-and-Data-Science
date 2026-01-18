@@ -334,7 +334,8 @@ class FurnishedRoom(RectangularRoom):
 
         Returns True if pos is furnished and False otherwise
         """
-        raise NotImplementedError
+        x,y = math.floor(pos.get_x()), math.floor(pos.get_y())
+        return self.is_tile_furnished(x,y)
         
     def is_position_valid(self, pos):
         """
