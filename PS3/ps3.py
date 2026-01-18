@@ -359,7 +359,11 @@ class FurnishedRoom(RectangularRoom):
         """
         Returns: a Position object; a valid random position (inside the room and not in a furnished area).
         """
-        raise NotImplementedError
+        while True:
+            x,y = random.random() * self.width, random.random() * self.height
+            pos = Position(x,y)
+            if self.is_position_valid(pos):
+                return pos
 
 # === Problem 3
 class StandardRobot(Robot):
