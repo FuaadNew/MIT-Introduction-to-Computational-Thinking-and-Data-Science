@@ -278,7 +278,8 @@ class EmptyRoom(RectangularRoom):
         """
         Returns: a Position object; a valid random position (inside the room).
         """
-        raise NotImplementedError
+        random_x, random_y = random.random() * self.width, random.random() * self.height
+        return Position(random_x, random_y)
 
 class FurnishedRoom(RectangularRoom):
     """
