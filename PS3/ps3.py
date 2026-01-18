@@ -353,7 +353,7 @@ class FurnishedRoom(RectangularRoom):
         """
         Returns: an integer; the total number of tiles in the room that can be accessed.
         """
-        raise NotImplementedError
+        return self.width * self.height - len(self.furniture_tiles)
         
     def get_random_position(self):
         """
