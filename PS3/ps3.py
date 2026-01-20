@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Problem Set 3: Simulating robots
-# Name:
-# Collaborators (discussion):
-# Time:
+# Name: Fuaad
+# Collaborators (discussion): None
+# Time: ~4 hours
 
 import math
 import random
@@ -509,11 +509,21 @@ def run_simulation(num_robots, speed, capacity, width, height, dirt_amount, min_
 #
 # 1)How does the performance of the two robot types compare when cleaning 80%
 #       of a 20x20 room?
+#   
+# It takes more time to clean 80% of a 20x20 room for the faulty 
+# robot in comparison to the regular robot. The performacne of the 
+# faulty robot converges with the regular robot as the number of robots
+# in the simulation grows.
 #
 #
 # 2) How does the performance of the two robot types compare when two of each
 #       robot cleans 80% of rooms with dimensions 
 #       10x30, 20x15, 25x12, and 50x6?
+
+#   The apsect ratio has an effect on both robots as the room becomes -
+#   after a certain threshold, more wide and short
+#   the performance of both robots declines. The faulty robots performance loss
+#   grows linearly whilst the regular robots perforamnce loss grows logarithmically. 
 #
 #
 
@@ -559,7 +569,7 @@ def show_plot_room_shape(title, x_label, y_label):
     pylab.show()
 
 
-show_plot_compare_strategies('Time to clean 80% of a 20x20 room, for various numbers of robots','Number of robots','Time / steps')
-#show_plot_room_shape('Time to clean 80% of a 300-tile room for various room shapes','Aspect Ratio', 'Time / steps')
+#show_plot_compare_strategies('Time to clean 80% of a 20x20 room, for various numbers of robots','Number of robots','Time / steps')
+##show_plot_room_shape('Time to clean 80% of a 300-tile room for various room shapes','Aspect Ratio', 'Time / steps')
 
 
