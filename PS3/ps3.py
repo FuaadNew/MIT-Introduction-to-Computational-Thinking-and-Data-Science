@@ -475,21 +475,26 @@ def run_simulation(num_robots, speed, capacity, width, height, dirt_amount, min_
     robot_type: class of robot to be instantiated (e.g. StandardRobot or
                 FaultyRobot)
     """
+   
     goal = (width * height) * min_coverage
-    robots = [robot_type(room,speed,capacity) for _ in range(num_robots)]
-    time_steps = 0
-    for robot in robots:
-        time_steps+= helperFunction(robot)
-    return time_steps / num_robots 
-    
     def helperFunction():
         steps = 0
+        room = EmptyRoom(width,height,dirt_amount)
+        robots = [robot_type(room,speed,capacity) for _ in range(num_robots)]
 
-        while True:
+        while room.get_num_cleaned_tiles() < goal:
+            for robot in robots:
+                robot.update_position_and_clean()
             steps+=1
-
-
         return steps
+    
+
+    steps = 0
+    for _ in range(num_trials):
+        steps+= helperFunction()
+    return steps / num_trials
+
+
 
 
 # print ('avg time steps: ' + str(run_simulation(1, 1.0, 1, 5, 5, 3, 1.0, 50, StandardRobot)))
