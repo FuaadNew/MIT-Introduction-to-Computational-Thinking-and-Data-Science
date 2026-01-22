@@ -111,7 +111,7 @@ class SimpleBacteria(object):
         """
         Stochastically determines whether this bacteria cell reproduces at a
         time step. Called by the update() method in the Patient and
-        TreatedPatient classes.
+        TreatedPatient classes. 
 
         The bacteria cell reproduces with probability
         self.birth_prob * (1 - pop_density).
@@ -133,7 +133,11 @@ class SimpleBacteria(object):
         Raises:
             NoChildException if this bacteria cell does not reproduce.
         """
-        pass  # TODO
+
+        if random.random() < self.birth_prob * (1 - pop_density):
+            return SimpleBacteria(self.birth_prob,self.death_prob)
+
+        raise NoChildException()
 
 
 class Patient(object):
