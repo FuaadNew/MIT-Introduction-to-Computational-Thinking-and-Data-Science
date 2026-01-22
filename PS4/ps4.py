@@ -88,7 +88,9 @@ class SimpleBacteria(object):
                 probability
             death_prob (float in [0, 1]): Maximum death probability
         """
-        pass  # TODO
+        random.seed(0)
+        self.birth_prob = birth_prob
+        self.birth_prob = death_prob
 
     def is_killed(self):
         """
