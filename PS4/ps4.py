@@ -8,7 +8,7 @@ import numpy as np
 import pylab as pl
 import random
 
-
+random.seed(0)
 ##########################
 # End helper code
 ##########################
@@ -88,9 +88,9 @@ class SimpleBacteria(object):
                 probability
             death_prob (float in [0, 1]): Maximum death probability
         """
-        random.seed(0)
+        
         self.birth_prob = birth_prob
-        self.birth_prob = death_prob
+        self.death_prob = death_prob
 
     def is_killed(self):
         """
@@ -101,7 +101,11 @@ class SimpleBacteria(object):
         Returns:
             bool: True with probability self.death_prob, False otherwise.
         """
-        pass  # TODO
+       
+        random_chance = random.random() 
+        return random_chance < self.death_prob
+
+
 
     def reproduce(self, pop_density):
         """
