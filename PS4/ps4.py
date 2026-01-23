@@ -263,7 +263,8 @@ def simulation_without_antibiotic(num_bacteria,
         populations (list of lists or 2D array): populations[i][j] is the
             number of bacteria in trial i at time step j
     """
-    pass  # TODO
+        bacteria = [Bacteria(birth_prob, death_prob) for _ range(num_bacteria)]
+        Bacteria(birth_prob, death_prob)
 
 
 # When you are ready to run the simulation, uncomment the next line
@@ -294,7 +295,7 @@ def calc_pop_std(populations, t):
         float: the standard deviation of populations across different trials at
              a specific time step
     """
-    pass  # TODO
+    
 
 
 def calc_95_ci(populations, t):
