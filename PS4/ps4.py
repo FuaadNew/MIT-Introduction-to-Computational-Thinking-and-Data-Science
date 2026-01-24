@@ -281,7 +281,7 @@ def simulation_without_antibiotic(num_bacteria,
 
 
 # When you are ready to run the simulation, uncomment the next line
-# populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
+populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
 
 ##########################
 # PROBLEM 3
@@ -308,8 +308,11 @@ def calc_pop_std(populations, t):
         float: the standard deviation of populations across different trials at
              a specific time step
     """
-    
-
+    n = len(populations)
+    mean = calc_pop_avg(populations, t)
+    sum_of_difference = sum([(populations[i][t] - mean)**2 for i in range(len(populations))])
+    std = math.sqrt(sum_of_difference / n)
+    sem = std / (math.sqrt(n))
 
 def calc_95_ci(populations, t):
     """
