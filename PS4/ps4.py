@@ -312,8 +312,8 @@ def calc_pop_std(populations, t):
     mean = calc_pop_avg(populations, t)
     sum_of_difference = sum([(populations[i][t] - mean)**2 for i in range(len(populations))])
     std = math.sqrt(sum_of_difference / n)
-    sem = std / (math.sqrt(n))
 
+    return std
 def calc_95_ci(populations, t):
     """
     Finds a 95% confidence interval around the average bacteria population
