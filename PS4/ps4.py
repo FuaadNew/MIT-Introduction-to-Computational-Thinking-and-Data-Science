@@ -220,7 +220,6 @@ def calc_pop_avg(populations, n):
     Returns:
         float: The average bacteria population size at time step n
     """
-
     cur_sum = 0
 
     for i in range(len(populations)):
@@ -263,8 +262,22 @@ def simulation_without_antibiotic(num_bacteria,
         populations (list of lists or 2D array): populations[i][j] is the
             number of bacteria in trial i at time step j
     """
-        bacteria = [Bacteria(birth_prob, death_prob) for _ range(num_bacteria)]
-        Bacteria(birth_prob, death_prob)
+    populations = []
+    for trial in range(num_trials):
+        bacteria = [SimpleBacteria(birth_prob, death_prob) for _ in range(num_bacteria)]
+        patient = Patient(bacteria, max_pop)
+        trial_pops = []
+        for timestep in range(300):
+            trial_pops.append(patient.get_total_pop())
+            patient.update()
+        populations.append(trial_pops)
+        
+        
+    avg_populations = [calc_pop_avg(populations,t) for t in range(300)]
+    make_one_curve_plot(range(300),avg_populations, "time steps","average populations", "title")
+    return populations  
+        
+        
 
 
 # When you are ready to run the simulation, uncomment the next line
