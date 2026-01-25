@@ -274,14 +274,14 @@ def simulation_without_antibiotic(num_bacteria,
         
         
     avg_populations = [calc_pop_avg(populations,t) for t in range(300)]
-    make_one_curve_plot(range(300),avg_populations, "time steps","average populations", "title")
+    #make_one_curve_plot(range(300),avg_populations, "time steps","average populations", "title")
     return populations  
         
         
 
 
 # When you are ready to run the simulation, uncomment the next line
-populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
+
 
 ##########################
 # PROBLEM 3
@@ -341,7 +341,7 @@ def calc_95_ci(populations, t):
     
 
 
-    return (mean,1.96 * SEM )
+    return (mean,1.96 * SEM)
 
 ##########################
 # PROBLEM 4
@@ -531,18 +531,27 @@ def simulation_with_antibiotic(num_bacteria,
 
 # When you are ready to run the simulations, uncomment the next lines one
 # at a time
-total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
-                                                      max_pop=1000,
-                                                      birth_prob=0.3,
-                                                      death_prob=0.2,
-                                                      resistant=False,
-                                                      mut_prob=0.8,
-                                                      num_trials=50)
+#total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
+ #                                                     max_pop=1000,
+  #                                                    birth_prob=0.3,
+   #                                                   death_prob=0.2,
+    #                                                  resistant=False,
+     #                                                 mut_prob=0.8,
+      #                                                num_trials=50)
 
-total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
-                                                      max_pop=1000,
-                                                      birth_prob=0.17,
-                                                      death_prob=0.2,
-                                                      resistant=False,
-                                                      mut_prob=0.8,
-                                                      num_trials=50)
+#total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
+ #                                                     max_pop=1000,
+  #                                                    birth_prob=0.17,
+   #                                                   death_prob=0.2,
+    #                                                  resistant=False,
+     #                                                 mut_prob=0.8,
+      #                                                num_trials=50)
+
+populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
+mean, width = calc_95_ci(populations, 299)
+print(f"95% confidence interval at timestep 299:")
+print(f"Mean {mean}")
+print(f"CI: {mean - width}, {mean + width}")
+
+
+print(f"95% confidence interval at timestep 299:")
