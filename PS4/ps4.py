@@ -274,7 +274,7 @@ def simulation_without_antibiotic(num_bacteria,
         
         
     avg_populations = [calc_pop_avg(populations,t) for t in range(300)]
-    #make_one_curve_plot(range(300),avg_populations, "time steps","average populations", "title")
+    make_one_curve_plot(range(300),avg_populations, "time steps","average populations", "title")
     return populations  
         
         
@@ -360,11 +360,13 @@ class ResistantBacteria(SimpleBacteria):
                 bacteria cell. This is the maximum probability of the
                 offspring acquiring antibiotic resistance
         """
-        pass  # TODO
+        super().__init__(birth_prob, death_prob)
+        self.resistant = resistant
+        self.mut_prob = mut_prob
 
     def get_resistant(self):
         """Returns whether the bacteria has antibiotic resistance"""
-        pass  # TODO
+        return self.resistant
 
     def is_killed(self):
         """Stochastically determines whether this bacteria cell is killed in
@@ -378,7 +380,11 @@ class ResistantBacteria(SimpleBacteria):
             bool: True if the bacteria dies with the appropriate probability
                 and False otherwise.
         """
-        pass  # TODO
+        if self.get_resistant():
+            return random.random() < self.death_prob
+        else:
+            return random.random() < (self.death_prob / 4)
+
 
     def reproduce(self, pop_density):
         """
@@ -409,7 +415,17 @@ class ResistantBacteria(SimpleBacteria):
             as this bacteria. Otherwise, raises a NoChildException if this
             bacteria cell does not reproduce.
         """
-        pass  # TODO
+        does_reproduce = random.random() < self.birth_prob * (1 - pop_density)
+        
+        if does_reproduce:
+            if self.get_resistant():
+                return ResistantBacteria(self.birth_prob, self.death_prob, True, self.mut_prob)
+            else:
+                resistance = random.random() < self.mut_prob * (1-pop_density)
+                return ResistantBacteria(self.birth_prob, self.death_prob, resistance, self.mut_prob)
+
+        raise NoChildException()
+
 
 
 class TreatedPatient(Patient):
