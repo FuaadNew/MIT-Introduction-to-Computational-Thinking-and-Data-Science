@@ -425,7 +425,7 @@ class ResistantBacteria(SimpleBacteria):
                 return ResistantBacteria(self.birth_prob, self.death_prob, resistance, self.mut_prob)
 
         raise NoChildException()
-
+  
 
 
 class TreatedPatient(Patient):
@@ -448,14 +448,15 @@ class TreatedPatient(Patient):
         Don't forget to call Patient's __init__ method at the start of this
         method.
         """
-        pass  # TODO
+        super().__init__(bacteria,max_pop)
+        self.on_antibiotic = False
 
     def set_on_antibiotic(self):
         """
         Administer an antibiotic to this patient. The antibiotic acts on the
         bacteria population for all subsequent time steps.
         """
-        pass  # TODO
+        self.on_antibiotic = True
 
     def get_resist_pop(self):
         """
@@ -464,7 +465,12 @@ class TreatedPatient(Patient):
         Returns:
             int: the number of bacteria with antibiotic resistance
         """
-        pass  # TODO
+        count = 0
+        for bacteria in self.bacteria:
+            if bacteria.get_resistant():
+                count+=1
+        return count
+
 
     def update(self):
         """
