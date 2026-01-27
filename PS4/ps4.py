@@ -622,19 +622,55 @@ def simulation_with_antibiotic(num_bacteria,
      #                                                 mut_prob=0.8,
       #                                                num_trials=50)
 
-total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
+#total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
+ #                                                     max_pop=1000,
+  #                                                    birth_prob=0.17,
+   #                                                   death_prob=0.2,
+    #                                                  resistant=False,
+     #                                                 mut_prob=0.8,
+      #                                                num_trials=50)
+
+
+
+
+Apopulation, Aresistant_population = simulation_with_antibiotic(num_bacteria=100,
                                                       max_pop=1000,
-                                                     birth_prob=0.17,
+                                                      birth_prob=0.3,
+                                                      death_prob=0.2,
+                                                      resistant=False,
+                                                      mut_prob=0.8,
+                                                      num_trials=50)
+print("Simulation A")
+mean, width = calc_95_ci(Apopulation, 299)
+print(f"95% confidence interval at timestep 299 for simulation A total population :")
+print(f"Mean {mean}")
+print(f"CI: {mean - width}, {mean + width}")
+
+mean, width = calc_95_ci(Aresistant_population, 299)
+print(f"95% confidence interval at timestep 299 for simulation A resistant population :")
+print(f"Mean {mean}")
+print(f"CI: {mean - width}, {mean + width}")
+
+
+
+Bpopulation, Bresistant_population = simulation_with_antibiotic(num_bacteria=100,
+                                                      max_pop=1000,
+                                                      birth_prob=0.17,
                                                       death_prob=0.2,
                                                       resistant=False,
                                                       mut_prob=0.8,
                                                       num_trials=50)
 
-populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
-mean, width = calc_95_ci(populations, 299)
-print(f"95% confidence interval at timestep 299:")
+
+
+                                                             
+print("Simulation B")
+mean, width = calc_95_ci(Bpopulation, 299)
+print(f"95% confidence interval at timestep 299 for simulation B total population :")
 print(f"Mean {mean}")
 print(f"CI: {mean - width}, {mean + width}")
 
-
-print(f"95% confidence interval at timestep 299:")
+mean, width = calc_95_ci(Bresistant_population, 299)
+print(f"95% confidence interval at timestep 299 for simulation B resistant population :")
+print(f"Mean {mean}")
+print(f"CI: {mean - width}, {mean + width}")
