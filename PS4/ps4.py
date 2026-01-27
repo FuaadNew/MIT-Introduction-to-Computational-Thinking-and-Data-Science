@@ -553,6 +553,7 @@ def simulation_with_antibiotic(num_bacteria,
     function of elapsed time steps (x-axis) on the same plot. You might find
     the helper function make_two_curve_plot helpful
 
+
     Args:
         num_bacteria (int): number of ResistantBacteria to create for
             the patient
@@ -574,7 +575,41 @@ def simulation_with_antibiotic(num_bacteria,
             resistant_pop[i][j] is the number of resistant bacteria for
             trial i at time step j
     """
-    pass  # TODO
+    
+
+
+    populations = []
+    resistant_populations = []
+
+    for trial in range(num_trials):
+        bacteria = [ResistantBacteria(birth_prob, death_prob,resistant, mut_prob) for _ in range(num_bacteria)]
+        patient = TreatedPatient(bacteria, max_pop)
+        trial_pops = []
+        trial_resistant_pops = []
+        for timestep in range(400):
+            if timestep == 150:
+                patient.set_on_antibiotic()
+            trial_pops.append(patient.get_total_pop())
+            trial_resistant_pops.append(patient.get_resist_pop())
+            patient.update()
+        populations.append(trial_pops)
+        resistant_populations.append(trial_resistant_pops)
+
+    avg_populations = [calc_pop_avg(populations,t) for t in range(400)]
+    avg_resistant_populations = [calc_pop_avg(resistant_populations,t) for t in range(400)]
+
+
+    make_two_curve_plot(range(400),
+                        avg_populations,
+                        avg_resistant_populations,
+                        "total_population",
+                        "total_resistant_population",
+                        "time steps",
+                        "populations",
+                        "average population size" )
+
+    return (populations,resistant_populations )
+
 
 
 # When you are ready to run the simulations, uncomment the next lines one
@@ -587,13 +622,13 @@ def simulation_with_antibiotic(num_bacteria,
      #                                                 mut_prob=0.8,
       #                                                num_trials=50)
 
-#total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
- #                                                     max_pop=1000,
-  #                                                    birth_prob=0.17,
-   #                                                   death_prob=0.2,
-    #                                                  resistant=False,
-     #                                                 mut_prob=0.8,
-      #                                                num_trials=50)
+total_pop, resistant_pop = simulation_with_antibiotic(num_bacteria=100,
+                                                      max_pop=1000,
+                                                     birth_prob=0.17,
+                                                      death_prob=0.2,
+                                                      resistant=False,
+                                                      mut_prob=0.8,
+                                                      num_trials=50)
 
 populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
 mean, width = calc_95_ci(populations, 299)
