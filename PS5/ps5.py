@@ -183,6 +183,11 @@ def r_squared(y, estimated):
         a float for the R-squared error term
     """
     mean = sum(y) / len(y)
+    numerator = sum(((yi - ei)**2 for yi,ei in zip(y,estimated)))
+    denominator = sum(((yi - mean)**2 for yi in y ))
+    return 1 - (numerator / denominator)
+    
+
 
 def evaluate_models_on_training(x, y, models):
     """
