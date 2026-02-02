@@ -215,8 +215,22 @@ def evaluate_models_on_training(x, y, models):
     Returns:
         None
     """
-    # TODO
-    pass
+    
+    for model in models:
+        estimated = pylab.polyval(model,x)
+        
+        is_linear = len(model) == 2
+        r_squared = r_squared(y, estimated)
+        
+        if is_linear:
+            standard error = se_over_slope(x, y, estimated, model)
+
+        
+
+    
+
+
+
 
 def gen_cities_avg(climate, multi_cities, years):
     """
