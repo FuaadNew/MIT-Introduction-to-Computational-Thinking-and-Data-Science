@@ -182,9 +182,9 @@ def r_squared(y, estimated):
     Returns:
         a float for the R-squared error term
     """
-    mean = sum(y) / len(y)
-    numerator = sum(((yi - ei)**2 for yi,ei in zip(y,estimated)))
-    denominator = sum(((yi - mean)**2 for yi in y ))
+    mean = pylab.mean(y)
+    numerator = ((y - estimated) ** 2).sum()
+    denominator = ((y - mean) ** 2).sum()
     return 1 - (numerator / denominator)
     
 
@@ -315,6 +315,7 @@ def evaluate_models_on_testing(x, y, models):
     pass
 
 if __name__ == '__main__':
+    
 
     pass 
 
