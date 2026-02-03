@@ -218,14 +218,23 @@ def evaluate_models_on_training(x, y, models):
     
     for model in models:
         estimated = pylab.polyval(model,x)
-        
         is_linear = len(model) == 2
-        r_squared = r_squared(y, estimated)
-        
-        if is_linear:
-            standard error = se_over_slope(x, y, estimated, model)
+        r_sq = r_squared(y, estimated)
+        degree = len(model) - 1
+        fig,ax = pylab.subplots()
+        ax.plot(x,y, "bo")
+        ax.plot(x,estimated, "r-")
+        ax.set_xlabel("Year")
+        ax.set_ylabel("temperature (Celsius)")
 
-        
+        if is_linear:
+            standard_error = se_over_slope(x, y, estimated, model)
+            ax.set_title(f'degree {degree}, R-square {r_sq}, SE/slope {standard_error}')
+
+        else:
+            ax.set_title(f'degree {degree}, R-square {r_sq}')
+            
+        pylab.show()
 
     
 
