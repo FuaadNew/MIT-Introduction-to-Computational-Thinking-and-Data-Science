@@ -340,10 +340,11 @@ def evaluate_models_on_testing(x, y, models):
 if __name__ == '__main__':
     
 
-    pass 
+     
 
     # Part A.4
-    # TODO: replace this line with your code
+    randominterval = random.choice(list(TRAINING_INTERVAL))
+    climate = Climate("PS5/data.csv")
 
     # Part B
     # TODO: replace this line with your code
