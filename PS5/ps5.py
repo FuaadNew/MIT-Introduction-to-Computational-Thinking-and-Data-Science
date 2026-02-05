@@ -6,6 +6,7 @@
 
 import pylab
 import re
+import random
 
 # cities in our weather data
 CITIES = [
@@ -343,8 +344,23 @@ if __name__ == '__main__':
      
 
     # Part A.4
-    randominterval = random.choice(list(TRAINING_INTERVAL))
-    climate = Climate("PS5/data.csv")
+
+    years = list(TRAINING_INTERVAL)
+    climate = Climate("data.csv")
+    x = []
+    y = []
+    
+    for year in TRAINING_INTERVAL:
+        temp = climate.get_daily_temp("NEW YORK", 1, 10, year)
+        x.append(year)
+        y.append(temp)
+       
+    
+    x = pylab.array(x)
+    y = pylab.array(y)
+    degs = [1]
+    models = generate_models(x,y,degs)
+    evaluate_models_on_training(x, y, models)
 
     # Part B
     # TODO: replace this line with your code
