@@ -364,9 +364,18 @@ if __name__ == '__main__':
 
 
     y = []
+    x = []
     for year in TRAINING_INTERVAL:
-        days = 365 if climate.rawdata["NEW YORK"][year][2].get(29,-1) == -1 else 366
-        print()
+        year_temps = climate.get_yearly_temp("NEW YORK", year)
+        y.append(pylab.mean(year_temps))
+        x.append(year)
+
+    x = pylab.array(x)
+    y = pylab.array(y)
+    degs = [1]
+    models = generate_models(x,y,degs)
+    evaluate_models_on_training(x, y, models)
+            
 
     # Part B
     # TODO: replace this line with your code
