@@ -257,8 +257,18 @@ def gen_cities_avg(climate, multi_cities, years):
         this array corresponds to the average annual temperature over the given
         cities for a given year.
     """
-    # TODO
-    pass
+
+    res = []
+
+
+
+    res = pylab.array(res)
+    return res
+
+
+
+
+    
 
 def moving_average(y, window_length):
     """
