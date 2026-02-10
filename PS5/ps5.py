@@ -388,8 +388,8 @@ if __name__ == '__main__':
     x = pylab.array(x)
     y = pylab.array(y)
     degs = [1]
-    models = generate_models(x,y,degs)
-    evaluate_models_on_training(x, y, models)
+    #models = generate_models(x,y,degs)
+    #evaluate_models_on_training(x, y, models)
 
 
     y = []
@@ -402,8 +402,8 @@ if __name__ == '__main__':
     x = pylab.array(x)
     y = pylab.array(y)
     degs = [1]
-    models = generate_models(x,y,degs)
-    evaluate_models_on_training(x, y, models)
+    #models = generate_models(x,y,degs)
+    #evaluate_models_on_training(x, y, models)
             
 
     # Part B
