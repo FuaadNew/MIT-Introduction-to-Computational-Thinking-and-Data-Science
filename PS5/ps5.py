@@ -267,7 +267,7 @@ def gen_cities_avg(climate, multi_cities, years):
     #for every year in years:
     for year in years:
        #make a sum variable for this year
-       year_sum = 0
+        year_sum = 0
         #for every city in mutlicities:
         for city in multi_cities:
             #use climate's method and get yearly temp
@@ -408,6 +408,13 @@ if __name__ == '__main__':
 
     # Part B
     # TODO: replace this line with your code
+    x = pylab.array(TRAINING_INTERVAL)
+    y = gen_cities_avg(climate, CITIES, years)
+    degs = [1]
+    models = generate_models(x,y,degs)
+    evaluate_models_on_training(x, y, models)
+
+
 
     # Part C
     # TODO: replace this line with your code

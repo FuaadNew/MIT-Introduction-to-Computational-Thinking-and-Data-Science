@@ -1,3 +1,6 @@
+[Add a41_partI.png]
+[Add a41_partII.png]
+
 
 ● What difference does choosing a specific day to plot the data for versus
 calculating the yearly average have on our graphs (i.e., in terms of the R 2
@@ -25,3 +28,4 @@ The slope in both graphs is positive showing the temperature increase as the yea
 However the January 10th graph has an SE/Slope ratio greater than .5, which tells us that 
 the trend reported could be due entirely to chance. The SE/Slope ratio for the average graph 
 is lower than .5 showing  statistically significant evidence for global warming. 
+
