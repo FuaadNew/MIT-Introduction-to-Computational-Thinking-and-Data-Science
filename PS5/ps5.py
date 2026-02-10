@@ -259,29 +259,29 @@ def gen_cities_avg(climate, multi_cities, years):
     """
 
 
-    #instanstiate a climate class
-    #instantiate a res variable
-
+    
+    #make a res array
+    res = []
+    #store number of cities as n
+    n = len(multi_cities)
     #for every year in years:
-        #make a list for this year
+    for year in years:
+       #make a sum variable for this year
+       year_sum = 0
         #for every city in mutlicities:
+        for city in multi_cities:
+            climate.
             #use climate's method and get yearly temp
-            #add mean to the year list
-        #make list year list pylab array
-        #use pylab method to get the mean from that year list
-        #append that to res
+            #add the mean of that city's temp for this year to the sum
+        #divide this sum by n
+        #append that mean of that year to the result array
+
     #make res pylab array
 
-    #return that array
+    #return res
 
 
    
-
-    res = pylab.array(res)
-    print(res)
-    return res
-
-
 
 
     
