@@ -2,30 +2,61 @@
 [Add a41_partII.png]
 
 
-● What difference does choosing a specific day to plot the data for versus
-calculating the yearly average have on our graphs (i.e., in terms of the R 2
-values and the fit of the resulting curves)? Interpret the results.
+PART A:
 
-Using average yearly temperature appears to produce a better fit than using  
-the temperature on January 10th as the y-value. The R^2 of plot two is higher than plot one, 
-proving a better fit. It appears that averaging out the temperatures minimizes random daily
-fluctuations and as a result produces a better model.
+    ● What difference does choosing a specific day to plot the data for versus
+    calculating the yearly average have on our graphs (i.e., in terms of the R 2
+    values and the fit of the resulting curves)? Interpret the results.
 
-● Why do you think these graphs are so noisy? Which one is more noisy?
+    Using average yearly temperature appears to produce a better fit than using  
+    the temperature on January 10th as the y-value. The R^2 of plot two is higher than plot one, 
+    proving a better fit. It appears that averaging out the temperatures minimizes random daily
+    fluctuations and as a result produces a better model.
 
-I believe the graphs are noisy because of the underlying nature of temperatures. Temperatures
-are naturally stochastic, hence the noise. The January 10th graph is more noisy than the average temperature graph as averaging
-yearly temperature serves to minimize random fluctuations. The temperature on January 10th doesn't 
-represent the temperature throughout the year.
+    ● Why do you think these graphs are so noisy? Which one is more noisy?
 
-● How do these graphs support or contradict the claim that global warming is
-leading to an increase in temperature? The slope and the standard
-error-to-slope ratio could be helpful in thinking about this.
+    I believe the graphs are noisy because of the underlying nature of temperatures. Temperatures
+    are naturally stochastic, hence the noise. The January 10th graph is more noisy than the average temperature graph as averaging
+    yearly temperature serves to minimize random fluctuations. The temperature on January 10th doesn't 
+    represent the temperature throughout the year.
 
-In both the average graph and January 10th graph there is a consistent increase in 
-yearly temperature between 1961 and 2009 measured by the graphs different methods.
-The slope in both graphs is positive showing the temperature increase as the years increase. 
-However the January 10th graph has an SE/Slope ratio greater than .5, which tells us that 
-the trend reported could be due entirely to chance. The SE/Slope ratio for the average graph 
-is lower than .5 showing  statistically significant evidence for global warming. 
+    ● How do these graphs support or contradict the claim that global warming is
+    leading to an increase in temperature? The slope and the standard
+    error-to-slope ratio could be helpful in thinking about this.
 
+    In both the average graph and January 10th graph there is a consistent increase in 
+    yearly temperature between 1961 and 2009 measured by the graphs different methods.
+    The slope in both graphs is positive showing the temperature increase as the years increase. 
+    However the January 10th graph has an SE/Slope ratio greater than .5, which tells us that 
+    the trend reported could be due entirely to chance. The SE/Slope ratio for the average graph 
+    is lower than .5 showing  statistically significant evidence for global warming. 
+
+
+
+
+PART B:
+    ● How does this graph compare to the graphs from part A (i.e., in terms of
+    the R 2 values, the fit of the resulting curves, and whether the graph
+    supports/contradicts our claim about global warming)? Interpret the
+    results.
+    The newer graph has much lower SE/SLOPE and higher R^2 value which means we can draw stronger conclusions 
+    from this graph and that the model explains a large portion of the variance. 
+    The graph shows a clear increase in average temperature as the years increase.
+    The graph supports our claims about global warming.
+
+    ● Why do you think this is the case?
+    The part B graph is produced by averaging out the temperatures across 21 cities. 
+    This reduces local noise and grants more predicitive power than sampling the temperature of one city. 
+
+    ● How would we expect the results to differ if we used 3 different cities?
+    What about 100 different cities?
+    Seeing as using 21 cities allowed us to reduce local noise, using 3 cities instead would lessen that effect.
+    The 3 cities model would be less predicitive, having a higher SE/Slope and lower R^2 value, as less
+    noise is filtered out. Conversely, a 100 cities model would have even more random noise filtered out,
+    leading to a better and more predicitive model.
+
+    ● How would the results have changed if all 21 cities were in the same region
+    of the United States (for ex., New England)?
+    If all 21 cities were in the same region, the resulting model would be hyper sensitive to 
+    random temperature fluctuations in that particular region resulting in worse predicitive capacity
+    for the rest of the United States.
