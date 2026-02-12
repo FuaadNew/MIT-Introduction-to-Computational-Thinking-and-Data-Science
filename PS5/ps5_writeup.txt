@@ -60,3 +60,21 @@ PART B:
     If all 21 cities were in the same region, the resulting model would be hyper sensitive to 
     random temperature fluctuations in that particular region resulting in worse predicitive capacity
     for the rest of the United States.
+
+
+
+PART C:
+
+    ● How does this graph compare to the graphs from part A and B ( i.e., in
+    terms of the R 2 values, the fit of the resulting curves, and whether the
+    graph supports/contradicts our claim about global warming)? Interpret the
+    results.
+    The moving averages graph has an even higher R^2 value than any of the previous graphs,
+    suggesting that it's fit explains more of the variance compared to the previous plots. 
+    It also has a much smaller SE/Slope value proving our fit's slope is statistically significant.
+    This plot shows temperature increases as the years increase, supporting our claim about global warming.
+    ● Why do you think this is the case?
+
+    Our model uses moving averages of length 5 to average out temperature fluctuations sampled from 21 cities. 
+    This removes noise and thus helps us better find the underlying trend. This technique removes 
+    the most noise compared to sampling 21 cities (without moving averages) or sampling one. 
