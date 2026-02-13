@@ -334,7 +334,7 @@ def rmse(y, estimated):
         a float for the root mean square error term
     """
     n = len(y)
-    summation  =(y - e)**2.sum()
+    summation  =((y - estimated)**2).sum()
     summation/= n
     return pylab.sqrt(summation)
 
@@ -382,8 +382,19 @@ def evaluate_models_on_testing(x, y, models):
     Returns:
         None
     """
-    # TODO
-    pass
+    
+    for model in models:
+        estimated = pylab.polyval(model,x)
+        r_mse = rmse(y, estimated)
+        degree = len(model) - 1
+        fig,ax = pylab.subplots()
+        ax.plot(x,y, "bo")
+        ax.plot(x,estimated, "r-")
+        ax.set_xlabel("Year")
+        ax.set_ylabel("temperature (Celsius)")
+        ax.set_title(f'degree {degree}, RMSE {r_mse}')
+            
+        pylab.show()
 
 if __name__ == '__main__':
     
