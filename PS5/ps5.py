@@ -458,6 +458,12 @@ if __name__ == '__main__':
 
     # Part D.2
     # TODO: replace this line with your code
+    x = pylab.array(TRAINING_INTERVAL)
+    y = pylab.array(TESTING_INTERVAL)
+    degs = [1]
+
+    models = generate_models(x,y,degs)
+    evaluate_models_on_testing(x, y, models):
 
     # Part E
     # TODO: replace this line with your code
