@@ -458,12 +458,14 @@ if __name__ == '__main__':
 
     # Part D.2
     # TODO: replace this line with your code
+
     x = pylab.array(TRAINING_INTERVAL)
-    y = pylab.array(TESTING_INTERVAL)
-    degs = [1]
+    average_temperatures = gen_cities_avg(climate, CITIES, years)
+    y = moving_average(average_temperatures, 5)
 
+    degs = [1,2,20]
     models = generate_models(x,y,degs)
-    evaluate_models_on_testing(x, y, models):
-
+    evaluate_models_on_training(x, y, models)
+    
     # Part E
     # TODO: replace this line with your code
