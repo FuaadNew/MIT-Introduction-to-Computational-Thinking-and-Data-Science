@@ -31,6 +31,7 @@ PART A:
     the trend reported could be due entirely to chance. The SE/Slope ratio for the average graph 
     is lower than .5 showing  statistically significant evidence for global warming. 
 
+[Add partb_I.png]
 
 
 
@@ -61,6 +62,7 @@ PART B:
     random temperature fluctuations in that particular region resulting in worse predicitive capacity
     for the rest of the United States.
 
+[Add partC_figure.png]
 
 
 PART C:
@@ -78,3 +80,11 @@ PART C:
     Our model uses moving averages of length 5 to average out temperature fluctuations sampled from 21 cities. 
     This removes noise and thus helps us better find the underlying trend. This technique removes 
     the most noise compared to sampling 21 cities (without moving averages) or sampling one. 
+
+Add [part_d_degree_one.png, part_d_degree_twenty.png, part_d_degree_two.png]
+
+PART D:
+
+● How do these models compare to each other?
+● Which one has the best R2 ? Why?
+● Which model best fits the data? Why?
