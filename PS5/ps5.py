@@ -454,7 +454,7 @@ if __name__ == '__main__':
 
     degs = [1]
     models = generate_models(x,y,degs)
-    evaluate_models_on_training(x, y, models)
+    #evaluate_models_on_training(x, y, models)
 
     # Part D.2
     # TODO: replace this line with your code
