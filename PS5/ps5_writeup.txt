@@ -40,17 +40,20 @@ PART B:
     the R 2 values, the fit of the resulting curves, and whether the graph
     supports/contradicts our claim about global warming)? Interpret the
     results.
+
     The newer graph has much lower SE/SLOPE and higher R^2 value which means we can draw stronger conclusions 
     from this graph and that the model explains a large portion of the variance. 
     The graph shows a clear increase in average temperature as the years increase.
     The graph supports our claims about global warming.
 
     ● Why do you think this is the case?
+
     The part B graph is produced by averaging out the temperatures across 21 cities. 
     This reduces local noise and grants more predicitive power than sampling the temperature of one city. 
 
     ● How would we expect the results to differ if we used 3 different cities?
     What about 100 different cities?
+
     Seeing as using 21 cities allowed us to reduce local noise, using 3 cities instead would lessen that effect.
     The 3 cities model would be less predicitive, having a higher SE/Slope and lower R^2 value, as less
     noise is filtered out. Conversely, a 100 cities model would have even more random noise filtered out,
@@ -58,6 +61,7 @@ PART B:
 
     ● How would the results have changed if all 21 cities were in the same region
     of the United States (for ex., New England)?
+    
     If all 21 cities were in the same region, the resulting model would be hyper sensitive to 
     random temperature fluctuations in that particular region resulting in worse predicitive capacity
     for the rest of the United States.
@@ -71,20 +75,44 @@ PART C:
     terms of the R 2 values, the fit of the resulting curves, and whether the
     graph supports/contradicts our claim about global warming)? Interpret the
     results.
+
     The moving averages graph has an even higher R^2 value than any of the previous graphs,
     suggesting that it's fit explains more of the variance compared to the previous plots. 
     It also has a much smaller SE/Slope value proving our fit's slope is statistically significant.
     This plot shows temperature increases as the years increase, supporting our claim about global warming.
+    
     ● Why do you think this is the case?
 
     Our model uses moving averages of length 5 to average out temperature fluctuations sampled from 21 cities. 
     This removes noise and thus helps us better find the underlying trend. This technique removes 
     the most noise compared to sampling 21 cities (without moving averages) or sampling one. 
 
-Add [part_d_degree_one.png, part_d_degree_twenty.png, part_d_degree_two.png]
 
 PART D:
+    
 
-● How do these models compare to each other?
-● Which one has the best R2 ? Why?
-● Which model best fits the data? Why?
+
+    PART I
+    
+    Add [part_d_degree_one.png, part_d_degree_twenty.png, part_d_degree_two.png]
+
+    ● How do these models compare to each other?
+
+    The moving average graph of degree one as a straight line fit with an R^2 of .92. 
+    The moving average graph of degree two has a slighlty curvier line fit and an R^2 of .94.
+    The moving average graph of degree twenty has a extremely curvy line fit and an R^2 of .97.
+
+
+    ● Which one has the best R2 ? Why?
+
+    The moving average graph with degree 1 has the lowest R^2 value (.92), suggesting that it's fit explains 
+    the least of the of the variance compared to the subsequent plots. As the degree increases to 2 and and 20 the R^2
+    increases to .94 and .97 respectively. Proving that if we give the line of fit more parameters 
+    the model will have more flexibility to fit closely to the patterns of the data.
+
+    ● Which model best fits the data? Why?
+
+    The model with degree 20 best fits the training data used to train the models. However, it's high R^2
+    is suspicious and hints that the model might've overfit to the data. 
+    We can't conclude which model generalizes best without seeing their performance on new data.
+   
