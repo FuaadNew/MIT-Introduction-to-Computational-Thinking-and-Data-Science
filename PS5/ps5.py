@@ -471,6 +471,12 @@ if __name__ == '__main__':
     yearly_temps = gen_cities_avg(climate, CITIES, list(TESTING_INTERVAL))
     y = moving_average(yearly_temps, 5)
 
+    x_test = pylab.array(TESTING_INTERVAL)
+    evaluate_models_on_testing(x_test, y, models)
+
+
+    
+
 
     
     
