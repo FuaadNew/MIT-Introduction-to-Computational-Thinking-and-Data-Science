@@ -465,7 +465,7 @@ if __name__ == '__main__':
 
     degs = [1,2,20]
     models = generate_models(x,y,degs)
-    evaluate_models_on_training(x, y, models)
+    #evaluate_models_on_training(x, y, models)
 
 
     yearly_temps = gen_cities_avg(climate, CITIES, list(TESTING_INTERVAL))

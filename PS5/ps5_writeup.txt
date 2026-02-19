@@ -116,3 +116,13 @@ PART D:
     is suspicious and hints that the model might've overfit to the data. 
     We can't conclude which model generalizes best without seeing their performance on new data.
    
+
+
+    Part 2:
+
+ 
+   
+    ● How did the different models perform? How did their RMSEs compare?
+    
+    ● Which model performed the best? Which model performed the worst? Are
+    they the same as those in part D.2.I? Why?
