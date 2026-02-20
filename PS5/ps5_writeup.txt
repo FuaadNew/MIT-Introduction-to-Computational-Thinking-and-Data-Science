@@ -120,9 +120,29 @@ PART D:
 
     Part 2:
 
- 
+    Add [part_D_II_I.png, part_D_II_II.png, part_D_II_III.png]
    
     ● How did the different models perform? How did their RMSEs compare?
-    
+
+    The models with degree 1 performed the best with an RMSE of .08. The models with a degree of 2
+    performed second best with an RMSE of .211. The models with degree 20 performed the worst
+    with an RMSE of 1.49.
+
     ● Which model performed the best? Which model performed the worst? Are
     they the same as those in part D.2.I? Why?
+
+    The model with degree 1 performed the best in D.2.II whilst the model with degreee 20 performed 
+    the best on D.2.I. This is a clear case of overfitting, where our more complex and flexible models 
+    fail to generalize to new data. The models that best fit the training data do not necessarily always
+    perform the best on the test data.
+
+
+
+    ● If we had generated the models using the A.4.II data (i.e. average annual
+    temperature of New York City) instead of the 5-year moving average over
+    22 cities, how would the prediction results 2010-2015 have changed?
+
+    Since we'd no longer use moving average and rely on the temperature of one city (instead of various ones),
+    the results of our models would be less resistant to stochastic variation and noise. The resulting models would 
+    perform worse on new data.
+
