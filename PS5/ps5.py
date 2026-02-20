@@ -355,8 +355,26 @@ def gen_std_devs(climate, multi_cities, years):
         this array corresponds to the standard deviation of the average annual 
         city temperatures for the given cities in a given year.
     """
-    # TODO
-    pass
+    
+    res = []
+  
+    for year in years:
+        city_temps = []
+        for city in multi_cities:
+            year_temps = climate.get_yearly_temp(city, year)
+            city_temps.append(year_temps)
+        # city_temps is now e.g. [[3, 5, 8, ...365 days], [10, 12, 15, ...365 days], ...]
+        #                          ^Boston's daily temps    ^Seattle's daily temps
+        daily_avgs = pylab.array(city_temps).mean(axis=0)
+        # daily_avgs is now e.g. [6.5, 8.5, 11.5, ...365 days]
+        #                         ^avg of day1 across all cities
+        res.append(pylab.std(daily_avgs))
+        # pylab.std([6.5, 8.5, 11.5, ...]) -> one number, e.g. 7.3
+    res = pylab.array(res)
+    # res is e.g. [7.3, 7.5, 7.1, ...] one std per year
+
+    #return res
+    return res
 
 def evaluate_models_on_testing(x, y, models):
     """
