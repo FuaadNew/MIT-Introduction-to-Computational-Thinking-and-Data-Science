@@ -501,4 +501,4 @@ if __name__ == '__main__':
 
 
     # Part E
-    # TODO: replace this line with your code
+    standards = gen_std_devs(climate, CITIES, years):
