@@ -490,7 +490,9 @@ if __name__ == '__main__':
     y = moving_average(yearly_temps, 5)
 
     x_test = pylab.array(TESTING_INTERVAL)
-    evaluate_models_on_testing(x_test, y, models)
+    #evaluate_models_on_testing(x_test, y, models)
+
+    
 
 
     
@@ -501,4 +503,10 @@ if __name__ == '__main__':
 
 
     # Part E
-    standards = gen_std_devs(climate, CITIES, years):
+    standards = gen_std_devs(climate, CITIES, years)
+    y = moving_average(standards, 5)
+    degs = [1]
+    models = generate_models(x,y,degs)
+    evaluate_models_on_training(x, y, models)
+
+
