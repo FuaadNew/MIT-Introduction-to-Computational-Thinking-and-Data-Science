@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Problem Set 5: Experimental Analysis
-# Name: 
-# Collaborators (discussion):
-# Time:
+# Name: Fuaad Mohamoud
+# Collaborators (discussion): None
+# Time: ~20 hours
 
 import pylab
 import re
