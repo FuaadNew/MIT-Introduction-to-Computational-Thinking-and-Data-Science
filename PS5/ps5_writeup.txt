@@ -146,3 +146,21 @@ PART D:
     the results of our models would be less resistant to stochastic variation and noise. The resulting models would 
     perform worse on new data.
 
+
+[insert partE_figure.png]
+
+PART E:
+    ● Does the result match our claim (i.e., temperature variation is getting
+    larger over these years)?
+
+    Our results contradicts the claim, as the slope of the regression line is negative. 
+    Which means that the standard deviation of the temperatures are decreasing over time,
+    so temperature variation is going down.
+
+
+    ● Can you think of ways to improve our analysis?
+
+    We can increase the number of cities that we're using to give a more 
+    representive picture of the national trend. We can increase the size 
+    of the moving average window to smooth out and decrease more noise. 
+
